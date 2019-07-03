@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Story Teller Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <img src="assets/logo-pink.png">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-item (click)="MyAvailability()" lines="none" color="primary" class="menu-item">
+            <ion-label>My Availability</ion-label>
+            <ion-icon slot="end" name="arrow-dropright"></ion-icon>
+          </ion-item>
+          <ion-item lines="none" color="primary" class="menu-item">
+            <ion-label>My Booking</ion-label>
+            <ion-icon slot="end" name="arrow-dropright"></ion-icon>
+          </ion-item>
+          <ion-item lines="none" color="primary" class="menu-item">
+            <ion-label>My Live Tours</ion-label>
+            <ion-icon slot="end" name="arrow-dropright"></ion-icon>
+          </ion-item>
+          <ion-item lines="none" color="primary" class="menu-item">
+            <ion-label>My Earnings</ion-label>
+            <ion-icon slot="end" name="arrow-dropright"></ion-icon>
+          </ion-item>
+          <ion-item lines="none" color="primary" class="menu-item">
+            <ion-label>My Training</ion-label>
+            <ion-icon slot="end" name="arrow-dropright"></ion-icon>
+          </ion-item>
+          <ion-item lines="none" color="primary" class="menu-item">
+            <ion-label>Tour Policy & Policy</ion-label>
+            <ion-icon slot="end" name="arrow-dropright"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer align="center" no-border>
+  <table>
+    <tr>
+      <td style="width:33.3%"></td>
+      <td>
+        <div class="notification">
+          <ion-icon name="folder"></ion-icon>
+        </div>
+      </td>
+      <td style="width:33.3%"></td>
+    </tr>
+  </table>
+</ion-footer>

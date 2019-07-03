@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Complete Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Bank Detail</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="margin-block-start: 1em;">
+      <ion-item lines="none">
+        <ion-input inputmode="numeric" clearInput placeholder="Account Number"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input clearInput placeholder="IFSC Code"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input clearInput placeholder="Account Holder Name"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Personal Information</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="margin-block-start: 1em;">
+      <ion-item lines="none">
+        <ion-input clearInput placeholder="Full Name"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input clearInput placeholder="Gender"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-datetime style="padding-left: 0px" displayFormat="D MMM YYYY" min="1997" max="2010" value="2005-06-17">
+        </ion-datetime>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input inputmode="numeric" clearInput placeholder="Pincode"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-select placeholder="Select State" style="padding-left: 0px">
+          <ion-select-option value="MP">Madhya Pradesh</ion-select-option>
+          <ion-select-option value="DL">Delhi Pradesh</ion-select-option>
+          <ion-select-option value="MH">Maharashtra</ion-select-option>
+          <ion-select-option value="CH">Chennai</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-select placeholder="Select City" style="padding-left: 0px">
+          <ion-select-option value="Indore">Indore</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-textarea placeholder="Address"></ion-textarea>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-card>
+    <ion-card-header>
+      <ion-card-title>Affidefit/PCC</ion-card-title>
+    </ion-card-header>
+  </ion-card> -->
+
+  <ion-button style="margin: 10px" (click)="homeMenu()" color="warning" expand="full">Submit</ion-button>
+</ion-content>

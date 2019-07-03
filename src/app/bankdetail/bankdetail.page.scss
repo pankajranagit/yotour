@@ -1,0 +1,23 @@
+ion-card {
+    --background: var(--ion-color-primary);
+}
+
+ion-card-header {
+    background: var(--ion-color-primary-shade);
+    padding-block-start: 10px;
+    padding-block-end: 10px;
+}
+
+ion-card-title {
+    color: #fff;
+    font-size: 1em;
+}
+
+ion-item {
+    --background: var(--ion-color-light);
+    --border-color: var(--ion-color-primary);
+    --border-style: solid;
+    --border-width: .05em;
+    --min-height: 40px;
+    font-size: 1em;
+}

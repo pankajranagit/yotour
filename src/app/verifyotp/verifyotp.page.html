@@ -1,0 +1,43 @@
+<ion-content padding>
+  <br><br>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <img src="assets/logo-white.png">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h2 class="ion-text-center ion-text-uppercase white-text">VERIFY OTP</h2>
+        <p class="ion-text-center ion-text-uppercase white-text">OTP has been sent to <b>+91 XXXX XXX 872</b></p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-input (keyup)="changeFocus(1)" type="number" style="text-align: center"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-input (keyup)="changeFocus(2)" #POS2 type="number" style="text-align: center"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-input (keyup)="changeFocus(3)" #POS3 type="number" style="text-align: center"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-input #POS4 type="number" style="text-align: center"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="NextPage()" color="warning" expand="full" style="margin: 0;">Signup</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

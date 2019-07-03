@@ -1,0 +1,28 @@
+ion-content {
+    --background: var(--ion-color-primary);
+}
+
+ion-card {
+    --background: var(--ion-color-primary-contrast);
+    padding-block-start: 10px;
+    padding-block-end: 10px;
+}
+
+ion-item {
+    --background: var(--ion-color-light);
+    --border-color: var(--ion-color-primary);
+    --border-style: solid;
+    --border-width: .05em;
+    --min-height: 40px;
+    font-size: 1em;
+}
+
+ion-icon {
+    margin-inline-end: .5em;
+}
+
+.username input {
+    max-height: 10px;
+    height: 20px;
+    font-size: .2em;
+}

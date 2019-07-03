@@ -1,0 +1,7 @@
+{
+  "name": "Yo Tour",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

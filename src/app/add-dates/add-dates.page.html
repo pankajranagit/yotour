@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Availability</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <table class="calendar selected" style="color: #fff">
+    <tr>
+      <td (click)="prevMonth()">
+        <ion-icon name="arrow-dropleft"></ion-icon>
+      </td>
+      <td>{{currMonth}} - {{currYear}}</td>
+      <td (click)="nextMonth()">
+        <ion-icon name="arrow-dropright"></ion-icon>
+      </td>
+    </tr>
+  </table>
+
+  <div class="grid-container">
+    <div class="grid-item">
+      Sun
+    </div>
+    <div class="grid-item">
+      Mon
+    </div>
+    <div class="grid-item">
+      Tue
+    </div>
+    <div class="grid-item">
+      Wed
+    </div>
+    <div class="grid-item">
+      Thu
+    </div>
+    <div class="grid-item">
+      Fri
+    </div>
+    <div class="grid-item">
+      Sat
+    </div>
+    <div *ngFor="let date of allDate; let i = index" class="grid-item">
+      {{date}}
+    </div>
+  </div>
+
+  <ion-list>
+    <ion-item lines="none" color="primary" class="menu-item">
+      <ion-label>Entire Day</ion-label>
+      <ion-checkbox slot="end" color="primary"></ion-checkbox>
+    </ion-item>
+    <ion-item lines="none" color="primary" class="menu-item">
+      <ion-label>Morning</ion-label>
+      <ion-checkbox slot="end" color="primary"></ion-checkbox>
+    </ion-item>
+    <ion-item lines="none" color="primary" class="menu-item">
+      <ion-label>Afternoon</ion-label>
+      <ion-checkbox slot="end" color="primary"></ion-checkbox>
+    </ion-item>
+    <ion-item lines="none" color="primary" class="menu-item">
+      <ion-label>Evening</ion-label>
+      <ion-checkbox slot="end" color="primary"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer transparent align="center" no-border>
+  <div class="centerFlex">
+    <div class="notification">
+      <ion-icon name="folder"></ion-icon>
+    </div>
+  </div>
+</ion-footer>
