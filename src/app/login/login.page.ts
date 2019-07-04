@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { LoadingController } from '@ionic/angular';
+import { RestApiService } from '../Services/rest-api.service';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +10,16 @@ import { LoadingController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  public mobileNumber: string;
+  
+  public user = { phone:'', email: ''};
+  public userDetail: any;
   constructor(
     public menuCtrl: MenuController,
     private statusBar: StatusBar,
+
     public navCtrl: NavController,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    private restServicApi: RestApiService
   ) {
     // let status bar overlay webview
     this.statusBar.overlaysWebView(true);
@@ -27,11 +32,31 @@ export class LoginPage implements OnInit {
   }
 
   verifyotp() {
-    this.presentLoadingWithOptions().then(a => {
-      console.log('Presented');
-      this.navCtrl.navigateForward('/verifyotp');
-      // this.loadingController.dismiss().then(b => console.log('dismissed'));
-    });
+    debugger;
+    this.restServicApi.login(this.user).subscribe((data: {}) => {       
+      this.presentLoadingWithOptions().then(a => {
+        this.userDetail = data;
+        localStorage.setItem('user', JSON.stringify(this.userDetail));  
+        
+        if (this.userDetail.code==200) {
+          alert(this.userDetail.message)
+          this.navCtrl.navigateForward('/verifyotp');
+         
+          this.loadingController.dismiss().then(b => console.log('dismissed'));
+        }
+        else{
+          this.loadingController.dismiss().then(b => console.log('dismissed'));
+          alert(this.userDetail.message)
+          
+        }   
+        
+       
+      });       
+     
+      
+    });  
+    
+    
   }
 
   async presentLoadingWithOptions() {
