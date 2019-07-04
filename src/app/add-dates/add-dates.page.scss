@@ -13,10 +13,16 @@
 
 .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    border: 1px solid rgb(204, 0, 68);
     padding: 12px;
     font-size: 16px;
     text-align: center;
+    min-height: 45px;
+}
+
+.header {
+    background-color: #cc0044;
+    color: #FFF;
 }
 
 .centerFlex {
@@ -58,4 +64,5 @@
 
 .selected {
     background-color: #ff0055;
+    color: #fff;
 }

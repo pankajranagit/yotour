@@ -21,29 +21,30 @@
   </table>
 
   <div class="grid-container">
-    <div class="grid-item">
-      Sun
+    <div class="grid-item header">
+      Su
     </div>
-    <div class="grid-item">
-      Mon
+    <div class="grid-item header">
+      Mo
     </div>
-    <div class="grid-item">
-      Tue
+    <div class="grid-item header">
+      Tu
     </div>
-    <div class="grid-item">
-      Wed
+    <div class="grid-item header">
+      We
     </div>
-    <div class="grid-item">
-      Thu
+    <div class="grid-item header">
+      Th
     </div>
-    <div class="grid-item">
-      Fri
+    <div class="grid-item header">
+      Fr
     </div>
-    <div class="grid-item">
-      Sat
+    <div class="grid-item header">
+      Sa
     </div>
-    <div *ngFor="let date of allDate; let i = index" class="grid-item">
-      {{date}}
+    <div [ngClass]="{'selected' : date.isselect}" *ngFor="let date of allDate; let i = index" (click)="selectDate(i)"
+      class="grid-item">
+      {{date.actdate}}
     </div>
   </div>
 
