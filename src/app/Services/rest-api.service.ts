@@ -16,12 +16,6 @@ export class RestApiService implements OnInit {
     
   }
  
-
-  // login(user:any) {
-  //   console.log('in service');
-  //   debugger;
-  //   return this.http.post(this.baseUrl + "login_check.php", user);
-  // }
   checkLoginSatus(): Observable<boolean> {
     return of(JSON.parse(localStorage.getItem('isLoggedIn')));
   }
@@ -33,9 +27,9 @@ export class RestApiService implements OnInit {
     // authenticaion mechanism
     var respone=  this.http.post(this.baseUrl + "login_check.php", user);
      
-   return respone
+   return respone;
   }
-
+ 
   
   logout():void {
     

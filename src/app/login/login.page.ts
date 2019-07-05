@@ -10,7 +10,7 @@ import { RestApiService } from '../Services/rest-api.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  
+  private isLoggedIn: boolean = false;
   public user = { phone:'', email: ''};
   public userDetail: any;
   constructor(
@@ -28,9 +28,24 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    this.restServicApi.checkLoginSatus()
+    .subscribe(val => this.isLoggedIn = val);
     this.menuCtrl.enable(false);
+   this.checkAuth();
   }
+  
+  checkAuth(): boolean{
+    console.log('checkAuth FUNC', this.restServicApi.checkLoginSatus);
+    if(this.isLoggedIn) 
+    {
+      
+       this.navCtrl.navigateForward('/home-menu');
+       return true; 
+    }
 
+    this.navCtrl.navigateForward('/login');
+    return false;
+  }
   verifyotp() {
     debugger;
     this.restServicApi.login(this.user).subscribe((data: {}) => {       
@@ -68,5 +83,9 @@ export class LoginPage implements OnInit {
       cssClass: 'custom-class custom-loading'
     });
     return await loading.present();
+  }
+  logout() {
+    this.restServicApi.logout();
+    this.isLoggedIn = false;
   }
 }

@@ -8,6 +8,7 @@ import { RestApiService } from '../Services/rest-api.service';
   styleUrls: ['./verifyotp.page.scss'],
 })
 export class VerifyotpPage implements OnInit {
+  private isLoggedIn: boolean = false;
   private userOtp: any;
   private OTP = { digit1: '', digit2: '', digit3: '', digit4: '' };
   private OTPDigits :string;
@@ -29,7 +30,7 @@ export class VerifyotpPage implements OnInit {
 
   }
   ConvertOTP(otpModel) {
-    this.OTPDigits = otpModel.digit1 + otpModel.digit2 + otpModel.digit3 + otpModel.digit4
+    this.OTPDigits = otpModel.digit1+"" +otpModel.digit2 +""+ otpModel.digit3+"" + otpModel.digit4
     debugger;
     return this.OTPDigits;
   }
@@ -37,6 +38,8 @@ export class VerifyotpPage implements OnInit {
  
     if (this.userOtp.data.OTP == this.ConvertOTP(this.OTP)) {
       debugger;
+      localStorage.setItem("user",null);      
+      localStorage.setItem('isLoggedIn', JSON.stringify(true));
       this.NextPage()
     }
     else{
