@@ -8,25 +8,41 @@ import { RestApiService } from '../Services/rest-api.service';
   styleUrls: ['./verifyotp.page.scss'],
 })
 export class VerifyotpPage implements OnInit {
-  private userOtp:any;
+  private userOtp: any;
+  private OTP = { digit1: '', digit2: '', digit3: '', digit4: '' };
+  private OTPDigits :string;
   @ViewChild('POS2') POS2;
   @ViewChild('POS3') POS3;
   @ViewChild('POS4') POS4;
-  
-  constructor(public navCtrl: NavController, public menuCtrl: MenuController, 
+
+  constructor(public navCtrl: NavController, public menuCtrl: MenuController,
     private statusBar: StatusBar,
     private restServicApi: RestApiService
-    
-    ) {}
+
+  ) { }
 
   ngOnInit() {
     debugger;
     this.menuCtrl.enable(false);
-    this.userOtp =JSON.parse(localStorage.getItem('user')) 
-   
-    
+    this.userOtp = JSON.parse(localStorage.getItem('user'))
+
+
   }
-   
+  ConvertOTP(otpModel) {
+    this.OTPDigits = otpModel.digit1 + otpModel.digit2 + otpModel.digit3 + otpModel.digit4
+    debugger;
+    return this.OTPDigits;
+  }
+  ValidateOtp() {
+ 
+    if (this.userOtp.data.OTP == this.ConvertOTP(this.OTP)) {
+      debugger;
+      this.NextPage()
+    }
+    else{
+      alert("Enter OTP Not Valid");
+    }
+  }
   changeFocus(currPos: any) {
     if (currPos === 1) {
       this.POS2.setFocus();

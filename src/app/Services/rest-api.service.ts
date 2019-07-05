@@ -32,7 +32,7 @@ export class RestApiService implements OnInit {
 
     // authenticaion mechanism
     var respone=  this.http.post(this.baseUrl + "login_check.php", user);
-    localStorage.setItem('user', JSON.stringify(respone));    
+     
    return respone
   }
 
