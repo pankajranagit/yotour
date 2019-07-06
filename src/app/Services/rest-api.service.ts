@@ -15,7 +15,6 @@ export class RestApiService implements OnInit {
   ngOnInit() {
 
   }
-
   checkLoginSatus(): Observable<boolean> {
     return of(JSON.parse(localStorage.getItem('isLoggedIn')));
   }
