@@ -7,38 +7,31 @@ import { Observable, of } from 'rxjs';
 })
 export class RestApiService implements OnInit {
   isLoggedIn = false;
-  baseUrl = "https://ntatpcsr.in/yotour/";
-  
+  baseUrl = 'http://103.27.233.205/yotour/';
+
   constructor(private http: HttpClient) {
 
   }
   ngOnInit() {
-    
-  }
- 
 
-  // login(user:any) {
-  //   console.log('in service');
-  //   debugger;
-  //   return this.http.post(this.baseUrl + "login_check.php", user);
-  // }
+  }
+
   checkLoginSatus(): Observable<boolean> {
     return of(JSON.parse(localStorage.getItem('isLoggedIn')));
   }
+
   checkUserDetailSatus(): Observable<boolean> {
     return of(JSON.parse(localStorage.getItem('user')));
   }
-  login(user:any): Observable<any> {
 
+  login(user: any): Observable<any> {
     // authenticaion mechanism
-    var respone=  this.http.post(this.baseUrl + "login_check.php", user);
-    localStorage.setItem('user', JSON.stringify(respone));    
-   return respone
+    const response = this.http.post(this.baseUrl + 'login_check.php', user);
+    return response;
   }
 
-  
-  logout():void {
-    
+
+  logout(): void {
     localStorage.removeItem('isLoggedIn');
     this.isLoggedIn = false;
   }

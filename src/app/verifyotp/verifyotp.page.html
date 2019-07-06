@@ -15,22 +15,7 @@
     <ion-row>
       <ion-col>
         <ion-item lines="none">
-          <ion-input (keyup)="changeFocus(1)" type="number" style="text-align: center"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item lines="none">
-          <ion-input (keyup)="changeFocus(2)" #POS2 type="number" style="text-align: center"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item lines="none">
-          <ion-input (keyup)="changeFocus(3)" #POS3 type="number" style="text-align: center"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item lines="none">
-          <ion-input #POS4 type="number" style="text-align: center"></ion-input>
+          <ion-input [(ngModel)]="userOtp.data.OTP" type="number" style="text-align: center"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>

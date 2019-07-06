@@ -10,9 +10,10 @@ import { RestApiService } from '../Services/rest-api.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  
-  public user = { phone:'', email: ''};
+
+  public user = { phone: '', email: '' };
   public userDetail: any;
+  public errormsg: any;
   constructor(
     public menuCtrl: MenuController,
     private statusBar: StatusBar,
@@ -32,31 +33,21 @@ export class LoginPage implements OnInit {
   }
 
   verifyotp() {
-    debugger;
-    this.restServicApi.login(this.user).subscribe((data: {}) => {       
+    this.restServicApi.login(this.user).subscribe((data: {}) => {
       this.presentLoadingWithOptions().then(a => {
         this.userDetail = data;
-        localStorage.setItem('user', JSON.stringify(this.userDetail));  
-        
-        if (this.userDetail.code==200) {
-          alert(this.userDetail.message)
+        console.log(this.userDetail);
+        // debugger;
+        if (this.userDetail.code === 200) {
+          localStorage.setItem('user', JSON.stringify(this.userDetail.data.userdetail));
+          this.loadingController.dismiss().then(b => console.log('dismissed'));
           this.navCtrl.navigateForward('/verifyotp');
-         
+        } else {
           this.loadingController.dismiss().then(b => console.log('dismissed'));
+          this.errormsg = this.userDetail.message;
         }
-        else{
-          this.loadingController.dismiss().then(b => console.log('dismissed'));
-          alert(this.userDetail.message)
-          
-        }   
-        
-       
-      });       
-     
-      
-    });  
-    
-    
+      });
+    });
   }
 
   async presentLoadingWithOptions() {

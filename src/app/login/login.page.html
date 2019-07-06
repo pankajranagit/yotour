@@ -19,7 +19,8 @@
         <ion-col size="12">
           <ion-item lines="none">
             <ion-icon name="call" size="small" slot="start"></ion-icon>
-            <ion-input  [(ngModel)]="user.phone"inputmode="tel" clearInput placeholder="Mobile Number"></ion-input>
+            <ion-input [(ngModel)]="user.phone" value="9933938814" inputmode="tel" clearInput
+              placeholder="Mobile Number"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -27,13 +28,19 @@
         <ion-col>
           <ion-item lines="none">
             <ion-icon name="mail" size="small" slot="start"></ion-icon>
-            <ion-input [(ngModel)]="user.email" inputmode="email" clearInput placeholder="Email Id"></ion-input>
+            <ion-input [(ngModel)]="user.email" value="rahul.kumarrkr96@gmail.com" inputmode="email" clearInput
+              placeholder="Email Id"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-button (click)="verifyotp()" expand="full" style="margin: 0;">Submit</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          {{errormsg}}
         </ion-col>
       </ion-row>
     </ion-card-content>
