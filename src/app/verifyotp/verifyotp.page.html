@@ -9,19 +9,26 @@
     <ion-row>
       <ion-col size="12">
         <h2 class="ion-text-center ion-text-uppercase white-text">VERIFY OTP</h2>
-        <p class="ion-text-center ion-text-uppercase white-text"> <b>{{userOtp.message}}</b></p>
+        <p class="ion-text-center ion-text-uppercase white-text"> <b>{{apimsg}}</b></p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item lines="none">
-          <ion-input [(ngModel)]="userOtp.data.OTP" type="number" style="text-align: center"></ion-input>
+          <ion-input [(ngModel)]="userOtp" type="number" style="text-align: center"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button (click)="ValidateOtp()" color="warning" expand="full" style="margin: 0;">Signup</ion-button>
+        <ion-button (click)="NextPage()" color="warning" expand="full" style="margin: 0;">Signup</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="errormsg">
+      <ion-col>
+        <ion-text color="light">
+          <p>{{errormsg}}</p>
+        </ion-text>
       </ion-col>
     </ion-row>
   </ion-grid>

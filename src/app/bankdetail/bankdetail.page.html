@@ -7,20 +7,31 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content> 
+  <form name="form" (ngSubmit)="f.form.valid && SaveBankDetail()" #f="ngForm" novalidate>
   <ion-card>
     <ion-card-header>
       <ion-card-title>Bank Detail</ion-card-title>
     </ion-card-header>
     <ion-card-content style="margin-block-start: 1em;">
       <ion-item lines="none">
-        <ion-input inputmode="numeric" clearInput placeholder="Account Number"></ion-input>
+        <ion-input  inputmode="numeric"  name="ACCOUNT_NO" [(ngModel)]="userDetail.ACCOUNT_NO" clearInput placeholder="Account Number"
+        #ACCOUNT_NO="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ACCOUNT_NO.invalid }" required></ion-input>
+        
+      </ion-item>
+      <div *ngIf="f.submitted && ACCOUNT_NO.invalid" class="invalid-feedback">
+          <div *ngIf="ACCOUNT_NO.errors.required">ACCOUNT_NO is required</div>
+      </div>
+      <ion-item lines="none">
+        <ion-input name="IFSC_CODE" clearInput placeholder="IFSC Code" [(ngModel)]="userDetail.IFSC_CODE" 
+        #IFSC_CODE="ngModel" [ngClass]="{ 'is-invalid': f.submitted && IFSC_CODE.invalid }" required ></ion-input>
+        <div *ngIf="f.submitted && IFSC_CODE.invalid" class="invalid-feedback">
+            <div *ngIf="IFSC_CODE.errors.required">IFSC_CODE is required</div>
+        </div>
       </ion-item>
       <ion-item lines="none">
-        <ion-input clearInput placeholder="IFSC Code"></ion-input>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-input clearInput placeholder="Account Holder Name"></ion-input>
+        <ion-input name="ACCOUNT_HOLDER_NAME"  clearInput placeholder="Account Holder Name" [(ngModel)]="userDetail.ACCOUNT_HOLDER_NAME"
+         #ACCOUNT_HOLDER_NAME="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ACCOUNT_HOLDER_NAME.invalid }" required ></ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
@@ -31,33 +42,41 @@
     </ion-card-header>
     <ion-card-content style="margin-block-start: 1em;">
       <ion-item lines="none">
-        <ion-input clearInput placeholder="Full Name"></ion-input>
+        <ion-input name="fullname" clearInput placeholder="Full Name" [(ngModel)]="userDetail.name"
+        #fullname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fullname.invalid }" required></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-input clearInput placeholder="Gender"></ion-input>
+        <ion-input name="id_proof_number" clearInput placeholder="Aadhar" [(ngModel)]="userDetail.id_proof_number"
+        #id_proof_number="ngModel" [ngClass]="{ 'is-invalid': f.submitted && id_proof_number.invalid }" required></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-datetime style="padding-left: 0px" displayFormat="D MMM YYYY" min="1997" max="2010" value="2005-06-17">
+        <ion-datetime name="dob" style="padding-left: 0px"  displayFormat="D MMM YYYY" min="1997" max="2010" [(ngModel)]="userDetail.dob"
+        #dob="ngModel" [ngClass]="{ 'is-invalid': f.submitted && dob.invalid }" required >
         </ion-datetime>
       </ion-item>
       <ion-item lines="none">
-        <ion-input inputmode="numeric" clearInput placeholder="Pincode"></ion-input>
+        <ion-input name="blood_group" clearInput placeholder="Blood Group" [(ngModel)]="userDetail.blood_group" 
+        #blood_group="ngModel" [ngClass]="{ 'is-invalid': f.submitted && blood_group.invalid }" required></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-select placeholder="Select State" style="padding-left: 0px">
+        <!-- <ion-select placeholder="Select State" style="padding-left: 0px">
           <ion-select-option value="MP">Madhya Pradesh</ion-select-option>
           <ion-select-option value="DL">Delhi Pradesh</ion-select-option>
           <ion-select-option value="MH">Maharashtra</ion-select-option>
           <ion-select-option value="CH">Chennai</ion-select-option>
+        </ion-select> -->
+        <ion-input name="emergency_phone" clearInput placeholder="Emergency Phone " [(ngModel)]="userDetail.emergency_phone" 
+        #emergency_phone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && emergency_phone.invalid }" required ></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-select name="city_id" placeholder="Select City" style="padding-left: 0px" [(ngModel)]="userDetail.city_id"
+        #city_id="ngModel" [ngClass]="{ 'is-invalid': f.submitted && city_id.invalid }" required>
+          <ion-select-option value="2">Indore</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item lines="none">
-        <ion-select placeholder="Select City" style="padding-left: 0px">
-          <ion-select-option value="Indore">Indore</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-textarea placeholder="Address"></ion-textarea>
+        <ion-textarea name="address"  placeholder="Address" [(ngModel)]="userDetail.address"
+        #address="ngModel" [ngClass]="{ 'is-invalid': f.submitted && address.invalid }" required></ion-textarea>
       </ion-item>
     </ion-card-content>
   </ion-card>
@@ -68,5 +87,6 @@
     </ion-card-header>
   </ion-card> -->
 
-  <ion-button style="margin: 10px" (click)="homeMenu()" color="warning" expand="full">Submit</ion-button>
+  <ion-button type="Submit" style="margin: 10px"  color="warning" expand="full">Submit</ion-button>
+</form> 
 </ion-content>

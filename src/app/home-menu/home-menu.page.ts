@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { LoadingController } from '@ionic/angular';
+import { RestApiService } from '../Services/rest-api.service';
 
 @Component({
   selector: 'app-home-menu',
@@ -14,11 +15,13 @@ export class HomeMenuPage implements OnInit {
     public navCtrl: NavController,
     public menuCtrl: MenuController,
     private statusBar: StatusBar,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    private restServicApi:RestApiService
   ) { }
 
   ngOnInit() {
     this.menuCtrl.enable(true);
+    this.restServicApi.CheckNavigation();
   }
 
   MyAvailability() {
